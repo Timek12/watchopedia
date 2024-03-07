@@ -2,24 +2,24 @@ import { useState } from "react";
 
 const Counter = () => {
   const [counterState, setCounterState] = useState(() => {
-    return { counter: 0 };
+    return { counter: 0, title:"React Hooks" };
   });
 
   function incrementCounter() {
     setCounterState((previousState) => {
-      return { counter: previousState.counter + 1 };
+      return {...previousState, counter: previousState.counter + 1 };
     });
   }
 
   function decrementCounter() {
     setCounterState((previousState) => {
-      return { counter: previousState.counter - 1 };
+      return {...previousState, counter: previousState.counter - 1 };
     });
   }
 
   return (
     <div className="col-12 col-md-4 offset-md-4 border text-white">
-      <span className="h2 pt-4 m-2 text-white-50">Fun Counter</span>
+      <span className="h2 pt-4 m-2 text-white-50">{counterState.title} Fun Counter</span>
       <button className="btn btn-success m-1" onClick={incrementCounter}>
         +1
       </button>
