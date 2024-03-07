@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 const Counter = () => {
-  const [counter, setCounter] = useState(() => {
-    return 10;
+  const [counterState, setCounterState] = useState(() => {
+    return { counter: 0 };
   });
 
   function incrementCounter() {
-    setCounter((previousState) => {
-      return previousState + 1;
+    setCounterState((previousState) => {
+      return { counter: previousState.counter + 1 };
     });
   }
 
   function decrementCounter() {
-    setCounter((previousState) => {
-      return previousState - 1;
+    setCounterState((previousState) => {
+      return { counter: previousState.counter - 1 };
     });
   }
 
@@ -29,7 +29,7 @@ const Counter = () => {
       <br />
       <span className="h4">
         Counter: &nbsp;
-        <span className="text-success">{counter}</span>
+        <span className="text-success">{counterState.counter}</span>
       </span>
     </div>
   );
