@@ -1,12 +1,10 @@
-import MoviePage from "./MoviePage";
-
 const MovieList = (props) => {
   return (
-    <ol>
-      {props.moveList.map((movie, index) => (
-        <li>{movie}</li>
-      ))}
-    </ol>
+    <div className="text-white">
+      {props.moveList.map((movie, index) => {
+        return <div key={index}>{movie}</div>;
+      })}
+    </div>
   );
 };
 
